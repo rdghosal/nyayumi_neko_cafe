@@ -1,7 +1,7 @@
 import os, requests
 from typing import List
 from enum import Enum
-from api.models import Cat, Breed, Category
+# from api.models import Cat, Breed, Category
 
 
 BASE_URL = "https://api.thecatapi.com/v1"
@@ -22,6 +22,7 @@ def get_url(query_type: QueryType, is_query: bool, param_value: str=""):
 	elif query_type == QueryType.CATEGORY:
 		suffix = "/images/search?category_ids=" if is_query else "/categories" 
 
+	print(BASE_URL + suffix + param_value)
 	return BASE_URL + suffix + param_value
 
 
@@ -29,7 +30,7 @@ def fetch_cat_data(query_type: QueryType, is_query: bool, param_value: str=""):
 	"""Returns either List[Cat], List[Category], List[Breed] 
 	after fetching data from third-party API based"""
 	response = requests.get(get_url(query_type, is_query, param_value))
-	print(response.json())
+	return response.text
 
 
 

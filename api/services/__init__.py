@@ -1,1 +1,1 @@
-from cats import *
+from .cats import *

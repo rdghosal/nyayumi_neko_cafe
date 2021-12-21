@@ -22,6 +22,7 @@ def create_app():
 	# and register controllers.
 	app = Flask(__name__, template_folder="../client/build", static_folder="../client/build/static")
 	app.register_blueprint(controllers.main.blueprint)
+	app.register_blueprint(controllers.cats.blueprint)
 	# app.register_blueprint(controllers.forms.blueprint)
 
 	# Toggle dev/prod based on env variable.
