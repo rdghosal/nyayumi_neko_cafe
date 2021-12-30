@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useLayoutEffect, useState } from "react";
 import "./FormContainer.css";
 import { QueryType } from "./Menu";
 
@@ -35,8 +35,10 @@ const FormContainer = (props: FormContainerProps) => {
 
 		if (categories && !isCategoriesLoaded)
 			loadDropdowns(QueryType.CATEGORY, categories);
-		else if (breeds && !isBreedsLoaded)
+		else if (breeds && !isBreedsLoaded) {
 			loadDropdowns(QueryType.BREED, breeds);
+			props.setQuery(breeds[0].id);
+		}
 
 	}, [categories,  breeds]);
 

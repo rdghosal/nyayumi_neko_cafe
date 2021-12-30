@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { RouterProps } from 'react-router';
 import CardContainer from './CardContainer';
 import FormContainer from './FormContainer';
+import LoadingModal from './LoadingModal';
 import Navigation from './Navigation';
 
 enum QueryType {
@@ -14,13 +15,20 @@ const Menu = (props: RouterProps) => {
 	const [ urlCollection, setUrls ] = useState<string[]>();
 	const [ query, setQuery ] = useState<string>();
 	const [ queryType, setQueryType ] = useState<QueryType>();
+	const [ isLoading, toggleCardsLoading ]  = useState<boolean>(true);
 
 	useEffect(() => {
 		if (queryType && query) {
+			setUrls(undefined);
 			fetchUrls(queryType, query, setUrls);
 		}
 	}, [ query ]);
 	
+	useEffect(() => {
+		if (urlCollection) {
+			toggleCardsLoading(false);
+		}
+	}, [ urlCollection])
 
 	return (
 		<div className="menu">
@@ -29,6 +37,7 @@ const Menu = (props: RouterProps) => {
 				setQuery={setQuery}
 				setQueryType={setQueryType} />
 			<CardContainer urlCollection={urlCollection} />
+			{ isLoading && <LoadingModal /> }
 		</div>
 	);
 

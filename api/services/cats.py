@@ -40,5 +40,7 @@ def remove_duplicates(in_data: list[str]) -> list[str]:
 		if not memo.get(d):
 			memo[d] = True
 			out_data.append(d)
+		else:
+			out_data.append("")
 
 	return out_data
