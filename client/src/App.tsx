@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, RouterProps, Switch } from 'react-router-dom';
+import Landing from './Landing';
+import { Menu } from './Menu';
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src='cinnabon_football.svg' className="App-logo" alt="logo" width="2000px" height="800px" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to load.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact render={(props: RouterProps) => <Landing {...props}/>} />
+          <Route path="/app" exact render={(props: RouterProps) => <Menu {...props}/>} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
