@@ -1,9 +1,25 @@
-.form-container {
+.form-container
+, .dropdown-container
+, .dropdown-group
+, .radio-btn-group {
 	display: flex;
-	justify-content: space-evenly;
+}
+
+.form-container {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 }
 
-.form__label {
-	
+.dropdown-group {
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.dropdown-container {
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 }

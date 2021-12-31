@@ -1,0 +1,11 @@
+.menu {
+	position: relative;
+	width: 100%;
+}
+
+.loading-modal {
+	top: 50vh;
+	left: 50vw;
+	width: 50%;
+	position: absolute;
+}

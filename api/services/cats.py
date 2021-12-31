@@ -19,7 +19,7 @@ async def get_cats_by_breed(breed_id: str, count: int):
 		, param_value=breed_id
 		, count=count)
 	
-	return remove_duplicates(cat_data)
+	return remove_duplicates(cat_data, count)
 
 
 async def get_cats_by_category(category_id: str, count: int):
@@ -28,19 +28,17 @@ async def get_cats_by_category(category_id: str, count: int):
 		, param_value=category_id
 		, count=count)
 
-	return remove_duplicates(cat_data)
+	return remove_duplicates(cat_data, count)
 
 
-def remove_duplicates(in_data: list[str]) -> list[str]:
+def remove_duplicates(in_data: list[str], count) -> list[str]:
 	"""Filters through a list of str data and returns list without duplicate items"""
-	out_data = []
+	out_data = [ "" ] * count
 	memo = {}
 
-	for d in in_data:
+	for index, d in enumerate(in_data):
 		if not memo.get(d):
 			memo[d] = True
-			out_data.append(d)
-		else:
-			out_data.append("")
+			out_data[index] = d
 
 	return out_data
