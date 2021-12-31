@@ -1,9 +1,11 @@
 import { ImagePreviewCard } from './ImagePreviewCard';
 import "./CardContainer.css";
+import { Dispatch, SetStateAction } from 'react';
 
 
 type CardContainerProps = {
 	urlCollection: string[] | undefined
+	setImgSrcInFocus: Dispatch<SetStateAction<string>>
 }
 
 const CardContainer = (props: CardContainerProps) => {
@@ -14,20 +16,30 @@ const CardContainer = (props: CardContainerProps) => {
 				props.urlCollection
 					? (
 						props.urlCollection.map((url, i) => {
-							return <ImagePreviewCard url={url} key={i} />
+							return <ImagePreviewCard url={url} key={i} 
+										setImgSrcInFocus={props.setImgSrcInFocus}/>
 						})
 					)
 					: (
 						<>
-							<ImagePreviewCard/>
-							<ImagePreviewCard/>
-							<ImagePreviewCard/>
-							<ImagePreviewCard/>
-							<ImagePreviewCard/>
-							<ImagePreviewCard/>
-							<ImagePreviewCard/>
-							<ImagePreviewCard/>
-							<ImagePreviewCard/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
+							<ImagePreviewCard
+								setImgSrcInFocus={props.setImgSrcInFocus}/>
 						</>
 						
 					)

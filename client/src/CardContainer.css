@@ -6,10 +6,11 @@
 	justify-items: center;
 	gap: 0.5rem 0.5rem;
 	padding: 0.5rem;
+	background-color: rgb(255, 251, 250);
 }
 
 .img-prev-card {
-	background-color: grey;
+	background-color: #c0bcffbb;
 	height: 250px;
 	width: 100%;
 }
@@ -22,5 +23,5 @@
 
 .img-prev-card:hover {
 	cursor: pointer;
-	border: 5px solid purple;
+	border: 5px solid #4e46b9;
 }

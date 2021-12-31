@@ -19,15 +19,20 @@ def get_url(query_type: QueryType, is_query: bool, param_value: str="", count: i
 	"""Returns url after adding suffix"""
 	suffix: str = ""
 
+	# For querying by Breed
 	if query_type == QueryType.BREED:
 		suffix = f"/images/search?limit={count}&breed_ids=" if is_query else "/breeds" 
+	# For querying by Category
 	elif query_type == QueryType.CATEGORY:
 		suffix = f"/images/search?limit={count}&category_ids=" if is_query else "/categories" 
+	# For random cat queries
+	elif query_type == None and is_query:
+		suffix = f"/images/search?limit={count}"
 
 	return BASE_URL + suffix + param_value
 
 
-async def fetch_cat_data(query_type: QueryType, is_query: bool, param_value: str="", count=0):
+async def fetch_cat_data(is_query: bool, query_type: QueryType=None, param_value: str="", count=0):
 	"""Returns either List[Cat], List[Category], List[Breed] 
 	after  fetching data from third-party API based"""
 

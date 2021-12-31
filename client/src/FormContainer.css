@@ -15,6 +15,7 @@
 .dropdown-group {
 	flex-direction: column;
 	justify-content: flex-start;
+	flex-basis: 15%;
 }
 
 .dropdown-container {
@@ -22,4 +23,9 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
+	gap: 5rem;
+}
+
+label {
+	margin-left: 0.25rem;
 }

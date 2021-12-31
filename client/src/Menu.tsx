@@ -2,8 +2,10 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { RouterProps } from 'react-router';
 import CardContainer from './CardContainer';
 import FormContainer from './FormContainer';
+import ImageFullView from './ImageFullView';
 import LoadingModal from './LoadingModal';
 import Navigation from './Navigation';
+import "./Main.css";
 
 enum QueryType {
 	CATEGORY = 1,
@@ -16,6 +18,7 @@ const Menu = (props: RouterProps) => {
 	const [ query, setQuery ] = useState<string>();
 	const [ queryType, setQueryType ] = useState<QueryType>();
 	const [ isLoading, toggleCardsLoading ]  = useState<boolean>(true);
+	const [ imgSrcInFocus, setImgSrcInFocus ] = useState<string>("");
 
 	useEffect(() => {
 		if (queryType && query) {
@@ -25,10 +28,12 @@ const Menu = (props: RouterProps) => {
 	}, [ query ]);
 	
 	useEffect(() => {
-		if (urlCollection) {
-			toggleCardsLoading(false);
-		}
+		toggleCardsLoading(urlCollection === undefined)
 	}, [ urlCollection])
+
+	if (imgSrcInFocus) {
+		return <ImageFullView url={imgSrcInFocus} />
+	}
 
 	return (
 		<div className="menu">
@@ -36,7 +41,9 @@ const Menu = (props: RouterProps) => {
 			<FormContainer
 				setQuery={setQuery}
 				setQueryType={setQueryType} />
-			<CardContainer urlCollection={urlCollection} />
+			<CardContainer 
+				urlCollection={urlCollection}
+				setImgSrcInFocus={setImgSrcInFocus} />
 			{ isLoading && <LoadingModal /> }
 		</div>
 	);

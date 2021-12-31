@@ -40,3 +40,10 @@ async def get_cats_by_category():
 
 	return jsonify(await cat_services.get_cats_by_category(category_id=category_id, count=count))
 
+
+@blueprint.route("/api/cats", methods=["GET"])
+async def get_random_cats():
+	"""Returns cat data based on client-specified category_id"""
+	count = int(request.args.get("count", "0"))
+
+	return jsonify(await cat_services.get_random_cats(count=count))
