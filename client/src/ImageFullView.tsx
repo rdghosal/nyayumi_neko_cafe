@@ -9,13 +9,16 @@ type ImageFullViewProps = {
 const ImageFullView = (props: ImageFullViewProps) => {
 
 	const [ tempImgSrc, setTempImgSrc ] = useState<string>();
-	const [ isIcon, toggleIsIcon ] = useState<boolean>(false);
+	const [ isIcon, toggleIsIcon ] = useState<boolean>(true);
 
 	useEffect(() => { async function handleUndefinedSrc() {
 
 			if (props.url.includes("cat_icon")) {
 				setTempImgSrc(await fetchRandomImageUrl())
-				toggleIsIcon(true);
+			}
+
+			else {
+				toggleIsIcon(false);
 			}
 
 		};
