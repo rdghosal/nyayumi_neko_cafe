@@ -39,7 +39,7 @@ async function fetchRandomImageUrl() {
 	
 	let url = "";
 
-	const response = await fetch("/api/cats?count=1");
+	const response = await fetch("/api/cats/random?count=1");
 	url = (await response.json() as Array<string>)[0];
 
 	return url;
