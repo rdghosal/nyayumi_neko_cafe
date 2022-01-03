@@ -1,6 +1,6 @@
 import asyncio
 import aiohttp
-import os, requests
+import os 
 from typing import List
 from enum import Enum
 # from api.models import Cat, Breed, Category
