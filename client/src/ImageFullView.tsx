@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import icon from "./cat_icon.svg";
 import LoadingModal from "./LoadingModal";
 
 type ImageFullViewProps = {
