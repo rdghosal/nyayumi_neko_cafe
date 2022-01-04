@@ -37,10 +37,12 @@ const Menu = (props: RouterProps) => {
 
 	return (
 		<div className="menu">
-			<Navigation {...props}/>
-			<FormContainer
-				setQuery={setQuery}
-				setQueryType={setQueryType} />
+			<div className="nav-form-wrapper">
+				<Navigation {...props}/>
+				<FormContainer
+					setQuery={setQuery}
+					setQueryType={setQueryType} />
+			</div>
 			<CardContainer 
 				urlCollection={urlCollection}
 				setImgSrcInFocus={setImgSrcInFocus} 

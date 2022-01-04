@@ -6,11 +6,13 @@
 }
 
 .form-container {
+	grid-area: form;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 	padding: 1em;
+	padding-top: 0;
 	margin-bottom: 1em;
 }
 
@@ -22,7 +24,6 @@
 .dropdown-group {
 	flex-direction: column;
 	justify-content: flex-start;
-	flex-basis: 15%;
 }
 
 .dropdown-container {
@@ -42,6 +43,10 @@ label {
 		flex-direction: row;
 		width: 75%;
 		justify-content: space-evenly;
+	}
+
+	.dropdown-group {
+		width: 40%;
 	}
 
 }
