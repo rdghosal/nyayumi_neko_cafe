@@ -25,6 +25,49 @@ html, body, #root, .App {
   pointer-events: none;
 }
 
+
+.loading-modal {
+	top: 0;
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(51, 51, 51, 0.90);
+	color: white;
+	position: absolute;
+	font-size: 18px;
+  padding-top: 50%;
+}
+
+.loading-modal > p {
+  font-size: 1.2em; 
+  margin-bottom: 1.5em;
+  margin-top: -5em;
+}
+
+
+.loading-modal__spinner {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-bottom: solid 5px var(--primary-color-900);
+  border-left: solid 5px var(--primary-color-900);
+  background-color: none;
+  animation: spinner-spin infinite 1.5s linear;
+}
+
+@keyframes spinner-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -53,4 +96,16 @@ html, body, #root, .App {
   to {
     transform: rotate(360deg);
   }
+}
+
+@media screen and (min-width: 768px) {
+	.loading-modal {
+		padding-top: 10%;
+		font-size: 2em;
+	}
+
+  .loading-modal > p {
+    margin-top: 0px;
+  }
+
 }

@@ -16,17 +16,6 @@
 	padding: 0.25rem;
 }
 
-.loading-modal {
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(51, 51, 51, 0.90);
-	color: white;
-	position: absolute;
-	font-size: 18px;
-	padding-top: 50%;
-}
-
 .img-prev-card {
 	background-color: #c0bcffbb;
 	width: 100%;
