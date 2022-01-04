@@ -5,6 +5,12 @@
 	display: flex;
 }
 
+.form-container > label
+.form-container p {
+	color: var(--accent-color);
+	font-family: var(--primary-font);
+}
+
 .form-container {
 	grid-area: form;
 	flex-direction: column;
@@ -31,6 +37,15 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 2em;
+}
+
+.radio-btn-group {
+	display: flex;
+	align-content: center;
+}
+
+.radio-btn-group > * {
+	height: 1.5em;
 }
 
 label {
