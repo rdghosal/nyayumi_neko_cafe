@@ -1,5 +1,6 @@
 :root {
-  --primary-color-900: #3829F0;
+  --primary-color-900: rgb(56, 41, 240);
+  --secondary-color-900--active: rgba(168, 164, 224); 
 }
 
 * {

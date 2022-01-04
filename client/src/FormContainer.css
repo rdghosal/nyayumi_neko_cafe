@@ -10,6 +10,13 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+.form-container > p {
+	font-size: 2em;
+	margin-bottom: 0.5em;
 }
 
 .dropdown-group {
@@ -19,13 +26,22 @@
 }
 
 .dropdown-container {
-	width: 100%;
-	flex-direction: row;
-	flex-wrap: wrap;
+	width: 50%;
+	flex-direction: column;
 	justify-content: center;
-	gap: 5rem;
+	gap: 2em;
 }
 
 label {
 	margin-left: 0.25rem;
+}
+
+@media (min-width: 900px) {
+
+	.dropdown-container {
+		flex-direction: row;
+		width: 75%;
+		justify-content: space-evenly;
+	}
+
 }

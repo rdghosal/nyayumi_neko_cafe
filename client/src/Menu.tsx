@@ -43,8 +43,9 @@ const Menu = (props: RouterProps) => {
 				setQueryType={setQueryType} />
 			<CardContainer 
 				urlCollection={urlCollection}
-				setImgSrcInFocus={setImgSrcInFocus} />
-			{ isLoading && <LoadingModal /> }
+				setImgSrcInFocus={setImgSrcInFocus} 
+				isLoading={ isLoading }
+				/>
 		</div>
 	);
 
