@@ -1,7 +1,10 @@
+type LoadingModalProps = {
+	isLoading: boolean
+}
 
-const LoadingModal = () => {
+const LoadingModal = (props: LoadingModalProps) => {
 	return (
-		<div className="loading-modal">
+		<div className={ `loading-modal${(props.isLoading) ? " visible" : " invisible" }`}>
 			<p>
 				Loading cat data...
 			</p>

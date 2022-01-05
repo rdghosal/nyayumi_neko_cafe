@@ -30,7 +30,7 @@ html, body, #root, .App {
 }
 
 
-.loading-modal {
+.loading-modal.visible {
 	top: 0;
 	display: flex;
 	justify-content: start;
@@ -38,11 +38,28 @@ html, body, #root, .App {
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(51, 51, 51, 0.90);
 	color: white;
 	position: absolute;
 	font-size: 18px;
   padding-top: 50%;
+  animation: loading-modal-load 500ms ease-in forwards;
+}
+
+@keyframes loading-modal-load {
+
+  from {
+    background-color: rgba(51, 51, 51, 0.0);
+  }
+
+  to {
+    background-color: rgba(51, 51, 51, 0.95);
+  }
+
+}
+
+
+.loading-modal.invisible {
+  display: none;
 }
 
 .loading-modal > p {
@@ -103,7 +120,7 @@ html, body, #root, .App {
 }
 
 @media screen and (min-width: 768px) {
-	.loading-modal {
+	.loading-modal.visible {
 		padding-top: 10%;
 		font-size: 2em;
 	}

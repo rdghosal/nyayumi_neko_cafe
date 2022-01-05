@@ -26,7 +26,7 @@ const ImageFullView = (props: ImageFullViewProps) => {
 
 	return (
 		<div className="img-fullview">
-			{ (isIcon && !tempImgSrc) ? <LoadingModal /> : null }
+			<LoadingModal isLoading={ isIcon && !tempImgSrc } />
 			<img src={ isIcon ? tempImgSrc : props.url } alt="" />
 		</div>
 	);

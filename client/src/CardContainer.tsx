@@ -14,7 +14,7 @@ const CardContainer = (props: CardContainerProps) => {
 
 	return (
 		<div className="card-container-wrapper">
-			{ props.isLoading && <LoadingModal /> }
+			<LoadingModal isLoading={ props.isLoading } />
 			<div className="card-container">
 				{
 					props.urlCollection
