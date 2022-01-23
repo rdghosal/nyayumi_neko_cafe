@@ -7,14 +7,12 @@ import LoadingModal from './LoadingModal';
 type CardContainerProps = {
 	urlCollection: string[] | undefined
 	setImgSrcInFocus: Dispatch<SetStateAction<string>>
-	isLoading: boolean
 }
 
 const CardContainer = (props: CardContainerProps) => {
 
 	return (
 		<div className="card-container-wrapper">
-			<LoadingModal isLoading={ props.isLoading } />
 			<div className="card-container">
 				{
 					props.urlCollection

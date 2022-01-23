@@ -1,8 +1,13 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import LoadingModal from "./LoadingModal";
+import "./ImageFullView.css";
+import downloadBtn from "./img/download-btn.svg";
+import shareBtn from "./img/share-btn.svg";
+import closeBtn from "./img/close-btn.svg";
 
 type ImageFullViewProps = {
 	url: string
+	setImgSrcInFocus: Dispatch<SetStateAction<string>>
 }
 
 const ImageFullView = (props: ImageFullViewProps) => {
@@ -27,7 +32,12 @@ const ImageFullView = (props: ImageFullViewProps) => {
 	return (
 		<div className="img-fullview">
 			<LoadingModal isLoading={ isIcon && !tempImgSrc } />
-			<img src={ isIcon ? tempImgSrc : props.url } alt="" />
+			<img className="img-fullview__close-btn" src={ closeBtn } onClick={() => props.setImgSrcInFocus("")}></img>
+			<img className="img-fullview__img" src={ isIcon ? tempImgSrc : props.url } alt="" />
+			<div className="img-fullview__interact-btns">
+				<img className="download-btn" src={ downloadBtn } alt="download"></img>
+				<img className="share-btn" src={ shareBtn } alt="share"></img>
+			</div>
 		</div>
 	);
 

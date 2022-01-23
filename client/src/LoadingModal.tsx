@@ -5,10 +5,12 @@ type LoadingModalProps = {
 const LoadingModal = (props: LoadingModalProps) => {
 	return (
 		<div className={ `loading-modal${(props.isLoading) ? " visible" : " invisible" }`}>
-			<p>
-				Loading cat data...
-			</p>
-			<div className="loading-modal__spinner"></div>
+			<div className="loading-modal-wrapper">
+				<p>
+					Loading cat data...
+				</p>
+				<div className="loading-modal__spinner"></div>
+			</div>
 		</div>
 	);
 }

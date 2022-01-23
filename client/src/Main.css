@@ -1,31 +1,20 @@
 .menu {
 	position: relative;
 	width: 100%;
-	/* background-color: rgb(253, 232, 236); */
-	background-color: rgb(255, 251, 250);
+	background-color: var(--clr-background);
 }
 
-.img-fullview {
-	height: 100%;
-	width: 100%;
-}
-
-.img-fullview > img {
-	max-width: 100vw;
-	max-height: 100vh;
+.menu > *:not(.loading-modal) {
+	margin-bottom: 3em;	
 }
 
 .nav__logo {
 	grid-area: logo;
 	background-image: url("./logo_en__horizontal.svg");
-	height: 100px;
-	width: 200px;
-	max-height: 125px;
-	max-width: 250px;
+	height: 80px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	margin: 0 auto;
 	position: relative;
 }
 
@@ -35,7 +24,7 @@
 	width: 50px;
 	position: absolute;
 	height: 5px;
-	bottom: 0;
+	bottom: -0.5em;
 	left: 50%;
 	margin-left: -25px;
 }
@@ -48,8 +37,19 @@
 .nav {
 	min-width: 250px;
 	width: 100%;
-	padding: 0.25rem;
-	margin-bottom: 1em;
+	padding: 0.75em;
+	margin-bottom: 2em;
+}
+
+.nav-form-wrapper {
+	top: 0;
+	height: auto;
+	position: sticky;
+	background-color: inherit;
+}
+
+.nav-form-wrapper > * , .nav-form-wrapper {
+	z-index: 100;
 }
 
 @media (min-width: 900px) {
@@ -59,10 +59,15 @@
 		justify-items: center;
 		grid-template-areas: 
 			"logo form form form";
-		padding-top: 2em;
+		justify-items: center;
+		align-items: center;
 	}
 
-	.nav {
+	.menu > *:not(.loading-modal) {
+		margin-bottom: 0;
+	}
+
+	.nav, .nav-form-wrapper {
 		margin-bottom: 0;
 	}
 

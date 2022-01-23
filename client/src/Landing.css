@@ -4,7 +4,7 @@
 
 .landing {
 	width: 100%;
-	height: 100%;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -50,19 +50,23 @@
 	padding: 1em;
 }
 
-.landing__title, 
+.landing__title,
 .landing__text {
 	width: 85%;
 	text-align: center;
-	color: white;
 }
 
+
+.landing__text {
+	color: white;
+}
 
 .landing__title {
 	font-weight: 900;
 	font-size: 5em;
 	margin-bottom: 0.075em;
-	letter-spacing: 0.030em;
+	letter-spacing: 0.075em;
+	color: rgba(255, 202, 182, 1);
 }
 
 

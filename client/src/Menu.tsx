@@ -32,11 +32,12 @@ const Menu = (props: RouterProps) => {
 	}, [ urlCollection])
 
 	if (imgSrcInFocus) {
-		return <ImageFullView url={imgSrcInFocus} />
+		return <ImageFullView url={imgSrcInFocus} setImgSrcInFocus={setImgSrcInFocus} />
 	}
 
 	return (
 		<div className="menu">
+			<LoadingModal isLoading={isLoading} />
 			<div className="nav-form-wrapper">
 				<Navigation {...props}/>
 				<FormContainer
@@ -46,7 +47,6 @@ const Menu = (props: RouterProps) => {
 			<CardContainer 
 				urlCollection={urlCollection}
 				setImgSrcInFocus={setImgSrcInFocus} 
-				isLoading={ isLoading }
 				/>
 		</div>
 	);
@@ -61,7 +61,7 @@ async function fetchUrls(queryType: QueryType
 	let paramName = queryType === QueryType.BREED ? "breed_id" : "category_id"
 	
 	let url = 
-		`/api/cats/${endpointName}?${paramName}=${query}&count=9`
+		`http://localhost:5000/api/cats/${endpointName}?${paramName}=${query}&count=9`
 	
 	const response = await fetch(url);
 	urlCollectionCallback(await response.json());

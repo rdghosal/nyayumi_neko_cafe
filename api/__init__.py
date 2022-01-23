@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_cors import CORS
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from .helpers import render_error
 import api.controllers as controllers
@@ -21,6 +22,8 @@ def create_app():
 	# Instantiate app, passing path to html pages to constructor
 	# and register controllers.
 	app = Flask(__name__, template_folder="../client/build", static_folder="../client/build/static")
+	CORS(app)
+
 	app.register_blueprint(controllers.main.blueprint)
 	app.register_blueprint(controllers.cats.blueprint)
 	# app.register_blueprint(controllers.forms.blueprint)

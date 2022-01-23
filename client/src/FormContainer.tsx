@@ -63,36 +63,40 @@ const FormContainer = (props: FormContainerProps) => {
 		<section className="form-container">
 			<p>Search by...</p>
 			<div className="dropdown-container">
-				<div className="dropdown-group">
-					<div className="radio-btn-group">
-						<input type="radio" name="query-type" id="radio-cat-breed"
-							value="breeds"
-							onChange={ (e) => handleRadioButtonChange(
-								e
-								, setActiveDropdownId
-								, props.setQueryType ) } 
-							defaultChecked={ true } />
-						<label className="form__label" htmlFor="radio-cat-breed">Breed</label>
+				<div className="dropdown-flex-wrapper">
+					<div className="dropdown-group">
+						<div className="radio-btn-group">
+							<input type="radio" name="query-type" id="radio-cat-breed"
+								value="breeds"
+								onChange={ (e) => handleRadioButtonChange(
+									e
+									, setActiveDropdownId
+									, props.setQueryType ) } 
+								defaultChecked={ true } />
+							<label className="form__label" htmlFor="radio-cat-breed">Breed</label>
+						</div>
+						<select name="dropdown-breed" id="dropdown-breeds" className="dropdown"
+							onChange={(e) => handleDropdownChange(e, props.setQuery) }>
+							{ !breeds && <option>Loading...</option> }
+						</select>
 					</div>
-					<select name="dropdown-breed" id="dropdown-breeds" className="dropdown"
-						onChange={(e) => handleDropdownChange(e, props.setQuery) }>
-						{ !breeds && <option>Loading...</option> }
-					</select>
 				</div>
-				<div className="dropdown-group">
-					<div className="radio-btn-group">
-						<input type="radio" name="query-type" id="radio-cat-category"
-							value="categories"
-							onChange={ (e) => handleRadioButtonChange(
-								e
-								, setActiveDropdownId
-								, props.setQueryType ) } />
-						<label className="form__label" htmlFor="radio-cat-breed">Category</label>
+				<div className="dropdown-flex-wrapper">
+					<div className="dropdown-group">
+						<div className="radio-btn-group">
+							<input type="radio" name="query-type" id="radio-cat-category"
+								value="categories"
+								onChange={ (e) => handleRadioButtonChange(
+									e
+									, setActiveDropdownId
+									, props.setQueryType ) } />
+							<label className="form__label" htmlFor="radio-cat-breed">Category</label>
+						</div>
+						<select name="dropdown-category" id="dropdown-categories" className="dropdown"
+							onChange={(e) => handleDropdownChange(e, props.setQuery) }>
+							{ !categories && <option>Loading...</option> }
+						</select>
 					</div>
-					<select name="dropdown-category" id="dropdown-categories" className="dropdown"
-						onChange={(e) => handleDropdownChange(e, props.setQuery) }>
-						{ !categories && <option>Loading...</option> }
-					</select>
 				</div>
 			</div>
 		</section>
@@ -128,7 +132,7 @@ function appendToSelect(selectEl: HTMLSelectElement, optionDataCollection: any[]
 
 async function fetchDropdownData(queryType: QueryType) : Promise<any[]> {
 
-	const baseUrl = "/api/cats"
+	const baseUrl = "http://localhost:5000/api/cats"
 	const suffix = queryType === QueryType.BREED ? "/breeds" : "/categories"
 
 	const response = await fetch(baseUrl + suffix);	
