@@ -5,7 +5,6 @@ import downloadBtn from "./img/download-btn.svg";
 import shareBtn from "./img/share-btn.svg";
 import closeBtn from "./img/close-btn.svg";
 import saveAs from "file-saver";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 type ImageFullViewProps = {
 	url: string
@@ -38,7 +37,7 @@ const ImageFullView = (props: ImageFullViewProps) => {
 			<img className="img-fullview__img" src={ isIcon ? tempImgSrc : props.url } alt="cat" id="cat-full-img" />
 			<div className="img-fullview__interact-btns">
 				<img className="download-btn" src={ downloadBtn } onClick={ downloadImage } alt="download"></img>
-				<img className="share-btn" src={ shareBtn } alt="share"></img>
+				<img className="share-btn" src={ shareBtn } onClick={async () => await shareImage() } alt="share"></img>
 			</div>
 		</div>
 	);
@@ -59,9 +58,9 @@ async function fetchRandomImageUrl() {
 
 function downloadImage(): void {
 
-	const fileName = `nyayumis_cat_cafe_${new Date().toISOString()}.jpg`;
+	const fileName = getImageFileName(); 
 	const reqData = {
-		url: (document.getElementById("cat-full-img") as HTMLImageElement).src
+		url: getImageSrc()
 	};
 
 	fetch("http://localhost:5000/api/cats/download", {
@@ -76,6 +75,44 @@ function downloadImage(): void {
 	.then(data => saveAs(data, fileName))
 	.catch(e => console.error(e));
 
+}
+
+
+async function shareImage() {
+
+	// get image src
+	const src = getImageSrc();
+	const shareData : ShareData = {
+		files: []
+	}
+
+	const response = await fetch("http://localhost:5000/api/cats/download", {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			url: src
+		})
+	});
+
+	const data = await response.blob();
+	const file = new File([data], 'test.jpg', {type: 'image/jpeg'});
+
+	shareData.files!.push(file);
+	console.log(shareData)
+	console.log(navigator.canShare(shareData))
+
+	await navigator.share(shareData);
+
+}
+
+function getImageFileName(): string {
+	return `nyayumis_cat_cafe_${new Date().toISOString()}.jpg`;	
+}
+
+function getImageSrc(): string {
+	return (document.getElementById("cat-full-img") as HTMLImageElement).src;	
 }
 
 export default ImageFullView;
