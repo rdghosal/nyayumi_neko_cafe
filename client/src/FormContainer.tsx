@@ -119,7 +119,6 @@ async function loadDropdowns(queryType: QueryType, optionDataCollection: any[]) 
 
 function appendToSelect(selectEl: HTMLSelectElement, optionDataCollection: any[]) {
 	
-	console.log("select element: ", selectEl);
 	optionDataCollection.forEach(optionData => {
 		const opt = document.createElement("option") as HTMLOptionElement;
 
