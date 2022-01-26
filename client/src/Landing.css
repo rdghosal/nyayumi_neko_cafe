@@ -9,11 +9,11 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-image: url("./wes-hicks-unsplash.png");
+	background-image: url("./img/wes-hicks-unsplash.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: center;
 	justify-content: flex-start;
-	background-position: right;
 }
 
 .landing__banner {
@@ -23,7 +23,6 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	/* background-image: linear-gradient(rgba(224, 223, 228, 1.0), rgba(224, 223, 228, 0.0)); */
 	background-image: linear-gradient(rgba(51, 51, 51, 1.0), rgba(51, 51, 51, 0.0));
 }
 
@@ -32,7 +31,6 @@
 	background-position: center;
 	width: 250px;
 	height: 125px;
-	/* border: solid black 3px; */
 	background-repeat: no-repeat;
 	background-size: contain;
 	display: flex;
@@ -57,10 +55,6 @@
 }
 
 
-.landing__text {
-	color: white;
-}
-
 .landing__title {
 	font-weight: 900;
 	font-size: 5em;
@@ -71,6 +65,7 @@
 
 
 .landing__text {
+	color: white;
 	line-height: 2em;
 	margin-bottom: 2em;
 	font-weight: 500;
@@ -84,7 +79,9 @@
 	color: #fff;
 	font-size: 1.25rem;
 	padding: 1em 2.5em;
-	font-weight: 700;
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	transition: background-color 200ms ease-in;
 }
 
 .landing__btn:hover {

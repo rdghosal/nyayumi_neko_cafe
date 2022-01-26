@@ -51,7 +51,12 @@ const FormContainer = (props: FormContainerProps) => {
 		const inactiveDropdown = document.getElementById(inactiveDropdownId) as HTMLSelectElement;
 
 		inactiveDropdown.disabled = true;
+		inactiveDropdown.classList.remove("active");
+		inactiveDropdown.parentElement?.querySelector("label")?.classList.remove("active");
+
 		activeDropdown.disabled = false;
+		activeDropdown.classList.add("active");
+		activeDropdown.parentElement?.querySelector("label")?.classList.add("active");
 
 		if (activeDropdown.childElementCount > 1) {
 			props.setQuery(activeDropdown.value);
@@ -61,7 +66,7 @@ const FormContainer = (props: FormContainerProps) => {
 
 	return (
 		<section className="form-container">
-			<p>Search by...</p>
+			<p>search by...</p>
 			<div className="dropdown-container">
 				<div className="dropdown-flex-wrapper">
 					<div className="dropdown-group">
@@ -73,11 +78,11 @@ const FormContainer = (props: FormContainerProps) => {
 									, setActiveDropdownId
 									, props.setQueryType ) } 
 								defaultChecked={ true } />
-							<label className="form__label" htmlFor="radio-cat-breed">Breed</label>
+							<label className="form__label" htmlFor="radio-cat-breed">breed</label>
 						</div>
 						<select name="dropdown-breed" id="dropdown-breeds" className="dropdown"
 							onChange={(e) => handleDropdownChange(e, props.setQuery) }>
-							{ !breeds && <option>Loading...</option> }
+							{ !breeds && <option>loading...</option> }
 						</select>
 					</div>
 				</div>
@@ -90,11 +95,11 @@ const FormContainer = (props: FormContainerProps) => {
 									e
 									, setActiveDropdownId
 									, props.setQueryType ) } />
-							<label className="form__label" htmlFor="radio-cat-breed">Category</label>
+							<label className="form__label" htmlFor="radio-cat-breed">category</label>
 						</div>
 						<select name="dropdown-category" id="dropdown-categories" className="dropdown"
 							onChange={(e) => handleDropdownChange(e, props.setQuery) }>
-							{ !categories && <option>Loading...</option> }
+							{ !categories && <option>loading...</option> }
 						</select>
 					</div>
 				</div>

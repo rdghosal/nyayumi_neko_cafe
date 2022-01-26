@@ -37,7 +37,7 @@ const Menu = (props: RouterProps) => {
 
 	return (
 		<div className="menu">
-			<LoadingModal isLoading={isLoading} />
+			{/* <LoadingModal isLoading={isLoading} /> */}
 			<div className="nav-form-wrapper">
 				<Navigation {...props}/>
 				<FormContainer
