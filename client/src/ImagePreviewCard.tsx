@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import icon from "./cat_icon.svg";
+import icon from "./img/cat_icon.svg";
 
 type ImagePreviewCardProps = {
 	url?: string

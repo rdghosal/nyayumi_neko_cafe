@@ -1,5 +1,5 @@
 import { ImagePreviewCard } from './ImagePreviewCard';
-import "./CardContainer.css";
+import "./css/CardContainer.css";
 import { Dispatch, SetStateAction } from 'react';
 import LoadingModal from './LoadingModal';
 

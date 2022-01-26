@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import LoadingModal from "./LoadingModal";
-import "./ImageFullView.css";
+import "./css/ImageFullView.css";
 import downloadBtn from "./img/download-btn.svg";
 import shareBtn from "./img/share-btn.svg";
 import closeBtn from "./img/close-btn.svg";

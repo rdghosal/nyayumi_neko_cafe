@@ -1,5 +1,5 @@
 import React from "react";
-import "./Landing.css";
+import "./css/Landing.css";
 import { RouterProps, useHistory } from "react-router-dom";
 
 const Landing = (props: RouterProps) => {

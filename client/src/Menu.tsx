@@ -5,7 +5,7 @@ import FormContainer from './FormContainer';
 import ImageFullView from './ImageFullView';
 import LoadingModal from './LoadingModal';
 import Navigation from './Navigation';
-import "./Main.css";
+import "./css/Menu.css";
 
 enum QueryType {
 	CATEGORY = 1,

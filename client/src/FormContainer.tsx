@@ -1,5 +1,5 @@
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useLayoutEffect, useState } from "react";
-import "./FormContainer.css";
+import "./css/FormContainer.css";
 import { QueryType } from "./Menu";
 
 type FormContainerProps = {

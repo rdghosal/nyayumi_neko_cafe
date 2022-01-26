@@ -1,0 +1,113 @@
+.landing__text, .landing__btn, .landing__title {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.landing {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: url("../img/wes-hicks-unsplash.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	justify-content: flex-start;
+}
+
+.landing__banner {
+	width: 100%;
+	height: 85%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background-image: linear-gradient(rgba(51, 51, 51, 1.0), rgba(51, 51, 51, 0.0));
+}
+
+.landing__logo {
+	background-image: url("../img/logo__horizontal--light.svg");
+	background-position: center;
+	width: 250px;
+	height: 125px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: flex;
+	align-items: center;
+	margin-bottom: 3em;
+}
+
+.landing__container {
+	width: 100%;	
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1em;
+}
+
+.landing__title,
+.landing__text {
+	width: 85%;
+	text-align: center;
+}
+
+
+.landing__title {
+	font-weight: 900;
+	font-size: 5em;
+	margin-bottom: 0.075em;
+	letter-spacing: 0.075em;
+	color: rgba(255, 202, 182, 1);
+}
+
+
+.landing__text {
+	color: white;
+	line-height: 2em;
+	margin-bottom: 2em;
+	font-weight: 500;
+	font-size: 1.05rem;
+}
+
+.landing__btn {
+	border-radius: 0.5rem;
+	background-color: var(--primary-color-900);
+	border: none;
+	color: #fff;
+	font-size: 1.25rem;
+	padding: 1em 2.5em;
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	transition: background-color 200ms ease-in;
+}
+
+.landing__btn:hover {
+	cursor: pointer;
+	background-color: var(--secondary-color-900--active);
+}
+
+.landing__btn:active {
+	transform: translateY(3px);
+	background-color: var(--secondary-color-900--active);
+}
+
+@media(min-width: 900px) {
+
+	.landing__container {
+		align-items: flex-start;
+		padding-left: 4em;
+		justify-content: flex-start;
+	}
+
+	.landing__text {
+		width: 50%;
+	}
+
+	.landing__title, .landing__text {
+		text-align: left;
+	}
+
+}
