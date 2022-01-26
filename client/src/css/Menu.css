@@ -42,7 +42,7 @@
 	top: 0;
 	height: auto;
 	position: sticky;
-	background-color: inherit;
+	background-color: var(--clr-background);
 	padding-top: 1em;
 	padding-bottom: 1em;
 	margin-bottom: 1em;
@@ -50,6 +50,10 @@
 
 .nav-form-wrapper > * , .nav-form-wrapper {
 	z-index: 100;
+}
+
+.menu-container.invisible {
+	display:none;
 }
 
 

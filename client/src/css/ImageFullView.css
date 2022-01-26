@@ -1,6 +1,7 @@
 
 .img-fullview {
     display: flex;
+    position: absolute;
     flex-direction: column;
     background-color: var(--clr-background);
     align-items: center;

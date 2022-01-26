@@ -29,7 +29,20 @@ const Menu = (props: RouterProps) => {
 	
 	useEffect(() => {
 		toggleCardsLoading(urlCollection === undefined)
-	}, [ urlCollection])
+	}, [ urlCollection]);
+
+	useEffect(() => {
+
+		const menuContainer = document.getElementById("menu-container");
+
+		if (!imgSrcInFocus) {
+			menuContainer?.classList.remove("invisible");
+		}
+		else {
+			menuContainer?.classList.add("invisible");
+		}
+
+	}, [imgSrcInFocus]);
 
 	// if (imgSrcInFocus) {
 	// 	return <ImageFullView url={imgSrcInFocus} setImgSrcInFocus={setImgSrcInFocus} />
@@ -38,17 +51,19 @@ const Menu = (props: RouterProps) => {
 	return (
 		<div className="menu">
 			{ imgSrcInFocus && <ImageFullView url={imgSrcInFocus} setImgSrcInFocus={setImgSrcInFocus} /> }
-			<LoadingModal isLoading={isLoading} />
-			<div className="nav-form-wrapper">
-				<Navigation {...props}/>
-				<FormContainer
-					setQuery={setQuery}
-					setQueryType={setQueryType} />
+			<div className="menu-container invisible" id="menu-container">
+				<LoadingModal isLoading={isLoading} />
+				<div className="nav-form-wrapper">
+					<Navigation {...props}/>
+					<FormContainer
+						setQuery={setQuery}
+						setQueryType={setQueryType} />
+				</div>
+				<CardContainer 
+					urlCollection={urlCollection}
+					setImgSrcInFocus={setImgSrcInFocus} 
+					/>
 			</div>
-			<CardContainer 
-				urlCollection={urlCollection}
-				setImgSrcInFocus={setImgSrcInFocus} 
-				/>
 		</div>
 	);
 
