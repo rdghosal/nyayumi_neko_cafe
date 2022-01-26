@@ -1,9 +1,9 @@
 import asyncio
+from io import BytesIO
 import aiohttp
 import os 
 from typing import List
 from enum import Enum
-# from api.models import Cat, Breed, Category
 
 
 BASE_URL = "https://api.thecatapi.com/v1"
@@ -51,19 +51,11 @@ async def fetch_cat_data(is_query: bool, query_type: QueryType=None, param_value
 				for d in data:
 					cat_data.append(d["url"])
 
-		# cat_data = []
-		# for i in range(0, count):
-		# 	async with aiohttp.ClientSession() as session:
-		# 		async with session.get(get_url(query_type, is_query, param_value)) as response:
-		# 			data = await response.json()
-		# 			cat_data.append(data[0]["url"])
-
-
-		# 		# response = requests.get(get_url(query_type, is_query, param_value))
-		# 		# cat_data.append(response.json()[0]["url"])
-		
 		return cat_data
 
-
-
+async def fetch_cat_img_data(url: str):
+	async with aiohttp.ClientSession() as session:
+		async with session.get(url) as response:
+			data = await response.read()
+			return BytesIO(data) 
 

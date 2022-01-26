@@ -1,21 +1,9 @@
-from io import BytesIO
-import requests
-from flask import Blueprint, render_template, send_from_directory, request, send_file
+from flask import Blueprint, request, send_file
 from flask.json import jsonify
 import api.services.cats as cat_services
 
 
 blueprint = Blueprint(name="cats_controller", import_name=__name__)
-
-# @blueprint.route("/api/cats/breeds", methods=["GET"])
-# def get_breeds():
-# 	"""Returns all cat breeds"""
-
-
-# @blueprint.route("/api/cats/categories", methods=["GET"])
-# def get_categories():
-# 	"""Returns all search categories"""
-# 	return cat_services.get_categories()
 
 
 @blueprint.route("/api/cats/breeds", methods=["GET"])
@@ -50,11 +38,10 @@ async def get_random_cats():
 
 	return jsonify(await cat_services.get_random_cats(count=count))
 
-@blueprint.route("/api/cats/download", methods=["POST"])
-def get_image():
-	r = request.get_json()
-	url = r["url"]
 
-	api_response = requests.get(url)
+@blueprint.route("/api/cats/download", methods=["POST"])
+async def get_image():
+
+	r = request.get_json()
+	return send_file(await cat_services.get_cat_img_bytes(r["url"]), mimetype="image/jpg")
 	
-	return send_file(BytesIO(api_response.content), mimetype="image/jpg")

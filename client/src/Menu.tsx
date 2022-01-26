@@ -31,13 +31,14 @@ const Menu = (props: RouterProps) => {
 		toggleCardsLoading(urlCollection === undefined)
 	}, [ urlCollection])
 
-	if (imgSrcInFocus) {
-		return <ImageFullView url={imgSrcInFocus} setImgSrcInFocus={setImgSrcInFocus} />
-	}
+	// if (imgSrcInFocus) {
+	// 	return <ImageFullView url={imgSrcInFocus} setImgSrcInFocus={setImgSrcInFocus} />
+	// }
 
 	return (
 		<div className="menu">
-			{/* <LoadingModal isLoading={isLoading} /> */}
+			{ imgSrcInFocus && <ImageFullView url={imgSrcInFocus} setImgSrcInFocus={setImgSrcInFocus} /> }
+			<LoadingModal isLoading={isLoading} />
 			<div className="nav-form-wrapper">
 				<Navigation {...props}/>
 				<FormContainer

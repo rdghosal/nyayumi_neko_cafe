@@ -30,9 +30,14 @@
 	border-radius: 5px;
 }
 
-.img-prev-card:hover {
+.img-prev-card:hover,
+.img-prev-card:focus {
 	cursor: pointer;
-	border: 5px solid var(--secondary-color-900--active);
+	border: 5px solid var(--primary-color-900);
+}
+
+.img-prev-card:hover .img-prev-card__img, .img-prev-card:focus .img-prev-card__img {
+	border-radius: 0;
 }
 
 @media (min-width:750px) {

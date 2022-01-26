@@ -1,6 +1,6 @@
 import asyncio
 from os import remove
-from api.dal.cats import QueryType, fetch_cat_data
+from api.dal.cats import QueryType, fetch_cat_data, fetch_cat_img_data
 
 
 async def get_breeds():
@@ -34,6 +34,11 @@ async def get_cats_by_category(category_id: str, count: int):
 async def get_random_cats(count: int):
 	"""Returns cats not queried by any particular parameter, the number of which is user-specifed."""
 	return remove_duplicates(await fetch_cat_data(is_query=True, count=count), count)
+
+
+async def get_cat_img_bytes(url: str):
+	"""Returns binary data of user-specified cat image url."""
+	return await fetch_cat_img_data(url)
 
 
 def remove_duplicates(in_data: list[str], count) -> list[str]:
