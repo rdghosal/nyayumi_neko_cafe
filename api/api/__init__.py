@@ -29,7 +29,7 @@ def create_app():
 	# app.register_blueprint(controllers.forms.blueprint)
 
 	# Toggle dev/prod based on env variable.
-	app.config["DEBUG"] = os.getenv("DEBUG") == "Y"
+	# app.config["DEBUG"] = os.getenv("DEBUG") == "Y"
 
 	# Ensure templates are auto-reloaded.
 	app.config["TEMPLATES_AUTO_RELOAD"] = True

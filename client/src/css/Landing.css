@@ -61,6 +61,7 @@
 	margin-bottom: 0.075em;
 	letter-spacing: 0.075em;
 	color: rgba(255, 202, 182, 1);
+	text-shadow: 0px 2px 5px rgb(78, 78, 78);
 }
 
 
@@ -70,6 +71,7 @@
 	margin-bottom: 2em;
 	font-weight: 500;
 	font-size: 1.05rem;
+	text-shadow: 0px 5px 5px rgb(51, 51, 51);
 }
 
 .landing__btn {

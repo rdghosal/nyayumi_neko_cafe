@@ -8,6 +8,7 @@ from enum import Enum
 
 BASE_URL = "https://api.thecatapi.com/v1"
 API_KEY = os.getenv("API_KEY")
+HEADERS = { "x-api-key" : API_KEY }
 
 
 class QueryType(Enum):
@@ -39,22 +40,22 @@ async def fetch_cat_data(is_query: bool, query_type: QueryType=None, param_value
 	response = None
 
 	if count == 0:
-		async with aiohttp.ClientSession() as session:
+		async with aiohttp.ClientSession(headers=HEADERS) as session:
 			async with session.get(get_url(query_type, is_query, param_value)) as response:
-				return await response.json()
+				return await response.json(content_type=None)
 	
 	else:
 		cat_data = []
-		async with aiohttp.ClientSession() as session:
+		async with aiohttp.ClientSession(headers=HEADERS) as session:
 			async with session.get(get_url(query_type, is_query, param_value, count)) as response:
-				data = await response.json()
+				data = await response.json(content_type=None)
 				for d in data:
 					cat_data.append(d["url"])
 
 		return cat_data
 
 async def fetch_cat_img_data(url: str):
-	async with aiohttp.ClientSession() as session:
+	async with aiohttp.ClientSession(headers=HEADERS) as session:
 		async with session.get(url) as response:
 			data = await response.read()
 			return BytesIO(data) 

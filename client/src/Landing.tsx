@@ -14,7 +14,7 @@ const Landing = (props: RouterProps) => {
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, quis!
 					</p>
 					<button className="landing__btn btn"
-						onClick={ () => history.push("/app") }>Enter</button>
+						onClick={ () => history.push("/app") }>enter</button>
 				</div>
 			</div>
 		</div>

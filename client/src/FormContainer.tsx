@@ -136,7 +136,7 @@ function appendToSelect(selectEl: HTMLSelectElement, optionDataCollection: any[]
 
 async function fetchDropdownData(queryType: QueryType) : Promise<any[]> {
 
-	const baseUrl = "http://localhost:5000/api/cats"
+	const baseUrl = "/api/cats"
 	const suffix = queryType === QueryType.BREED ? "/breeds" : "/categories"
 
 	const response = await fetch(baseUrl + suffix);	

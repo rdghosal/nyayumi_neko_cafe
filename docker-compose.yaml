@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.api
+    env_file:
+      - ./api/.env  
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.client
+    ports:
+      - "3000:80"

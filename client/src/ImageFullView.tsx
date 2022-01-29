@@ -49,7 +49,7 @@ async function fetchRandomImageUrl() {
 	
 	let url = "";
 
-	const response = await fetch("http://localhost:5000/api/cats/random?count=1");
+	const response = await fetch("/api/cats/random?count=1");
 	url = (await response.json() as Array<string>)[0];
 
 	return url;
@@ -63,7 +63,7 @@ function downloadImage(): void {
 		url: getImageSrc()
 	};
 
-	fetch("http://localhost:5000/api/cats/download", {
+	fetch("/api/cats/download", {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ async function shareImage() {
 		files: []
 	}
 
-	const response = await fetch("http://localhost:5000/api/cats/download", {
+	const response = await fetch("/api/cats/download", {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'

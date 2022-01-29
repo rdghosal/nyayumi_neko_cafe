@@ -77,7 +77,7 @@ async function fetchUrls(queryType: QueryType
 	let paramName = queryType === QueryType.BREED ? "breed_id" : "category_id"
 	
 	let url = 
-		`http://localhost:5000/api/cats/${endpointName}?${paramName}=${query}&count=9`
+		`/api/cats/${endpointName}?${paramName}=${query}&count=9`
 	
 	const response = await fetch(url);
 	urlCollectionCallback(await response.json());
