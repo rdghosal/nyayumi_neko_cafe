@@ -73,7 +73,10 @@ function downloadImage(): void {
 	})
 	.then(r => r.blob())
 	.then(data => saveAs(data, fileName))
-	.catch(e => console.error(e));
+	.catch(e => {
+		console.error(e);
+		window.alert("Failed to download image... Please try again!");
+	});
 
 }
 
@@ -100,11 +103,13 @@ async function shareImage() {
 	const file = new File([data], 'test.jpg', {type: 'image/jpeg'});
 
 	shareData.files!.push(file);
-	console.log(shareData)
-	console.log(navigator.canShare(shareData))
-
-	await navigator.share(shareData);
-
+	try {
+		await navigator.share(shareData);
+	}
+	catch(error) {
+		console.error(error);
+		window.alert("Sorry! Your browser or device doesn't allow sharing.")
+	}	
 }
 
 function getImageFileName(): string {

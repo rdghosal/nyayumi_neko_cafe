@@ -11,7 +11,7 @@ const Landing = (props: RouterProps) => {
 					<div className="landing__logo"></div>
 					<p className="landing__title">relax.</p>
 					<p className="landing__text">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, quis!
+						stressed? relax by viewing, downloading, and sharing the best part of life: cats.
 					</p>
 					<button className="landing__btn btn"
 						onClick={ () => history.push("/app") }>enter</button>
